@@ -57,6 +57,13 @@ PROXIES = ['http://115.218.127.158:9000', 'http://115.218.127.8:9000', 'http://1
            # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'zufang (+http://www.yourdomain.com)'
 
+MONGODB_HOST = '172.0.0.1'
+MONGODB_PORT = 3306
+MONGODB_DBNAME = "ZuFang"
+MONGODB_DOCNAME = "ZuFangXx"
+
+
+
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
 
@@ -85,18 +92,20 @@ DOWNLOAD_DELAY = 3
 
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
-SPIDER_MIDDLEWARES = {
+#SPIDER_MIDDLEWARES = {
     #'zufang.middlewares.ZufangSpiderMiddleware': 543,
-    'zufang.middlewares.MyUserAgentMiddleware':300,
+    #'zufang.middlewares.MyUserAgentMiddleware':300,
     #'zufang.middlewares.ProxyMiddleware':200
-}
+#}
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
+DOWNLOADER_MIDDLEWARES = {
     #'zufang.middlewares.ZufangDownloaderMiddleware': 543,
+    'zufang.middlewares.MyUserAgentMiddleware':300,
+    #'zufang.middlewares.ProxyMiddleware':200
 
-#}
+}
 
 # Enable or disable extensions
 # See https://doc.scrapy.org/en/latest/topics/extensions.html

@@ -22,9 +22,14 @@ class ZufangPipeline(object):
 
 class ZuFangKuPipeline(object):
     def __init__(self):
-        host = settings['']
-        port = settings['']
-        dbname = settings['']
+        host = settings['MONGODB_HOST']
+        port = settings['MONGODB_PORT']
+        dbname = settings['MONGODB_DBNAME']
         client = pymongo.MongoClient(host=host,port=port)
         mdb = client['dbname']
-        self.post = mdb[settings['']]
+        self.post = mdb[settings['MONGODB_DOCNAME']]
+
+    def process_item(self,item,spider):
+        data = dict(item)
+        self.post.insert(data)
+        return item
