@@ -1,0 +1,2 @@
+# zufangspider
+使用Scrapy爬去58和安居客租房信息并存入数据库或者json文件
