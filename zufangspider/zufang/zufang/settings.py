@@ -103,6 +103,7 @@ DOWNLOAD_DELAY = 3
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
     #'zufang.middlewares.ZufangDownloaderMiddleware': 543,
+    'scrapy.downloadermiddleware.useragent.UserAgentMiddleware': None, 
     'zufang.middlewares.MyUserAgentMiddleware':300,
     #'zufang.middlewares.ProxyMiddleware':200
 
